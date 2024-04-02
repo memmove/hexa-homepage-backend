@@ -28,7 +28,7 @@ public class NewsRepositoryImpl implements NewsRepositoryCustom {
     *  1. input : pageNum - 보여줄 페이지 쪽수, perPage - 한 페이지당 보여줄 항목 수
     *  2. output : news List 리턴 (pageNum 쪽의 perPage 갯수 만큼) */
     @Override
-    public List<News> findAllWithPaging(Integer pageNum, Integer perPage) {
+    public List<News> findAllWithPaging(int pageNum, int perPage) {
         QNews news = QNews.news;
 
         return queryFactory.selectFrom(news)

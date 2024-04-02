@@ -28,6 +28,10 @@ public class NewsAdminPageService {
     public AdminNewsListResponse getAdminNewsList(
             Integer pageNum, Integer perPage
     ) {
+        // null guard
+        pageNum = pageNum == null ? 0 : pageNum;
+        perPage = perPage == null ? 1 : perPage;
+
         List<News> newsList = newsRepository.findAllWithPaging(pageNum, perPage);
         List<AdminNewsDto> adminNewsDtos = newsList.stream()
                 .map(news -> {
@@ -70,7 +74,7 @@ public class NewsAdminPageService {
     public void adminModifyNews(AdminModifyNewsRequestDto adminModifyNewsRequestDto) {
         Long newsId = adminModifyNewsRequestDto.getNewsId();
         News foundNews = newsRepository.findById(newsId)
-                            .orElseThrow((() -> new BadRequestException(BadRequestType.NEWS_NOT_FOUND)));
+                .orElseThrow((() -> new BadRequestException(BadRequestType.NEWS_NOT_FOUND)));
 
         Optional.ofNullable(adminModifyNewsRequestDto.getNewsType())
                 .ifPresent(foundNews::updateNewsType);

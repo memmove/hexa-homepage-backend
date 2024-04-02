@@ -8,7 +8,7 @@ public interface NewsRepositoryCustom {
 
     List<News> findForMainPageByQuery();
 
-    List<News> findAllWithPaging(Integer pageNum, Integer perPage);
+    List<News> findAllWithPaging(int pageNum, int perPage);
 
     int getMaxPage(Integer perPage);
 }
