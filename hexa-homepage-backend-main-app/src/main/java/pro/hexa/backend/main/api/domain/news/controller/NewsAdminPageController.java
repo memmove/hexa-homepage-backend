@@ -31,7 +31,7 @@ public class NewsAdminPageController {
     @Operation(description = "뉴스 수정 창에서 보여줄 정보 조회")
     @GetMapping("/detail")
     public ResponseEntity<AdminNewsDetailResponse> getAdminNewsDetail(
-            @RequestParam() Long newsId
+            @RequestParam() long newsId
     ) {
         return new ResponseEntity<>(newsAdminPageService.getAdminNewsDetail(newsId), HttpStatus.OK);
     }

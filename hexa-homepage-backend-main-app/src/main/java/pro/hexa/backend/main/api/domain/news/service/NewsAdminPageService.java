@@ -49,7 +49,7 @@ public class NewsAdminPageService {
                 .build();
     }
 
-    public AdminNewsDetailResponse getAdminNewsDetail(Long newsId) {
+    public AdminNewsDetailResponse getAdminNewsDetail(long newsId) {
         AdminNewsDetailResponse adminNewsDetailResponse = new AdminNewsDetailResponse();
 
         News foundNews = newsRepository.findById(newsId)
